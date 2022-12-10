@@ -7,4 +7,4 @@
 
 **Figma**
 
-* [Ссылка на сайт в github pages]()
+* [Ссылка на сайт в github pages](https://iliabaconoff.github.io/mesto/)
