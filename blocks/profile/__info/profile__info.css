@@ -1,0 +1,14 @@
+.profile__info {
+  display: grid;
+  grid: auto / max-content auto auto auto;
+  gap: 20px
+}
+
+@media screen and (max-width: 670px) {
+  .profile__info{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    gap: 0;
+  }
+}

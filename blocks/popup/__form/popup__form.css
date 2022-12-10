@@ -1,0 +1,9 @@
+@media screen and (max-width: 580px) {
+    .popup__input {
+      max-width: 238px;
+      width: 100%;
+      font-size: 18px;
+      font-weight: 900;
+      box-sizing: border-box;
+    }
+  }

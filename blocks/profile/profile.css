@@ -1,0 +1,23 @@
+.profile {
+  color: #fff;
+  display: grid;
+  padding: 40px 15px 51px;
+}
+@media screen and (max-width: 680px) {
+  .profile {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    justify-items: center;
+  }
+}
+@media screen and (max-width: 580px) {
+  .profile {
+    padding-top: 30px;
+    padding-bottom: calc(36px + (51 - 36) * (100vw - 320px) / (1280 - 320));
+    padding-left: 19px;
+    padding-right: 19px;
+    gap:0;
+  }
+}
