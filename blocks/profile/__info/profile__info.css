@@ -1,7 +1,7 @@
 .profile__info {
   display: grid;
   grid: auto / max-content auto auto auto;
-  gap: 20px
+  gap: 20px;
 }
 
 @media screen and (max-width: 670px) {
