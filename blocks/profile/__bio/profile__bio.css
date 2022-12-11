@@ -17,7 +17,6 @@
 }
 @media screen and (max-width: 370px) {
   .profile__bio{
-    align-self: center;
     margin-top: 14px;
     font-size: calc(14px + (18 - 14) * (100vw - 320px) / (1280 - 320));
   }

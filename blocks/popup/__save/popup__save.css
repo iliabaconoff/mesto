@@ -1,4 +1,4 @@
-.button_form{
+.popup__save{
   margin-top: 48px;
   padding: 14px 18px;
   color: #fff;
@@ -7,14 +7,21 @@
   font-size: 18px;
   line-height: 1.2;
   width: 100%;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
 }
 
 @media screen and (max-width: 320px) {
-  .button_form {
+  .popup__save {
     margin-top: 45px;
     font-size: 14px;
     font-weight: 400;
     line-height: 17px;
     margin-bottom: 5px;
   }
+}
+
+.popup__save:hover{
+  opacity: .8;
 }
