@@ -2,13 +2,6 @@
   position: relative;
   display: flex;
   width: 100%;
-  padding-top: 74px;
   border-bottom: 1px solid rgba(84, 84, 84, .7);
   align-items: flex-start;
-}
-
-@media screen and (max-width:670px) {
-  .header {
-  padding-top: calc(28px + (120 - 28) * (100vw - 320px) / (1280 - 320));
-  }
 }

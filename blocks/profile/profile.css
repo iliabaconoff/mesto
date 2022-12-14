@@ -1,7 +1,7 @@
 .profile {
   color: #fff;
   display: grid;
-  padding: 40px 15px 51px;
+  padding: 40px 0 0;
 }
 @media screen and (max-width: 680px) {
   .profile {
@@ -19,5 +19,12 @@
     padding-left: 19px;
     padding-right: 19px;
     gap:0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .profile {
+    padding-top: 40px;
+    gap: 10px;
   }
 }

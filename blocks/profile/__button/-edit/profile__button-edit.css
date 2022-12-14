@@ -9,16 +9,16 @@
   fill: #fff;
   width: 24px;
   height: 24px;
-  margin-left: 18px;
-  margin-top: 37px;
+  margin-left: 20px;
+  margin-top: 25px;
 }
 
 @media screen and (max-width: 320px) {
   .profile__button-edit {
+    margin: 5px 0 0 10px;
     width: 18px;
     height: 18px;
     padding: 7px 7px;
-    margin-top: 0;
     background-size: 7.5px 7.5px;
   }
 }

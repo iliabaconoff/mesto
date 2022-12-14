@@ -9,6 +9,8 @@
   grid-column: 4/5;
   border: 2px solid #fff;
   border-radius: 2px;
+  justify-self: end;;
+  align-self: center;
 }
 
 .profile__button-add:hover {
@@ -19,16 +21,16 @@
   .profile__button-add {
     width: 100%;
     max-width: 282px;
-    margin-top: 36px;
+    margin-top: 25px;
   }
 }
 
 @media screen and (max-width: 575px) {
   .profile__button-add{
+    margin-top: 20px;
     box-sizing: border-box;
     align-self: center;
     width: 100%;
     height: 50px;
-    margin: 32px 0 0;
   }
 }
