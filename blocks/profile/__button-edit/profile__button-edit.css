@@ -11,6 +11,11 @@
   min-height: 24px;
   margin-left: 20px;
   margin-top: 25px;
+  cursor: pointer;
+}
+
+.profile__button-edit:hover { 
+  opacity: .6;
 }
 
 @media screen and (max-width: 320px) {

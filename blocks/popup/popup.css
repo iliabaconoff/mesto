@@ -9,9 +9,3 @@
   justify-content: center;
   align-items: center;
 }
-
-.popup_opened {
-  display: flex;
-  margin: auto;
-   
-}
