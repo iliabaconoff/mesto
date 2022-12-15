@@ -1,5 +1,6 @@
 .profile__bio {
   margin: 0;
+  max-width: 350px;
   align-self: flex-start;
   font-weight: 400;
   font-size: 18px;
@@ -7,8 +8,9 @@
   grid-column: 2/3;
   grid-row: 2;
   padding-left: 10px;
-  white-space: wrap;
-  word-wrap: break-word;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media screen and (max-width: 670px) {
