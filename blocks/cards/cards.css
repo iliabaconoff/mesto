@@ -5,11 +5,13 @@
   gap: 17px;
   margin-top: 50px;
 }
+
 @media screen and (max-width:880px) {
   .cards{
-    margin: 0 auto;
+    margin: auto;
   }
 }
+
 @media screen and (max-width:670px) {
   .cards{
     margin-top: 0;

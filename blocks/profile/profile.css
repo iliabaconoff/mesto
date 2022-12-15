@@ -3,8 +3,9 @@
   display: grid;
   padding: 40px 0 0;
 }
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 880px) {
   .profile {
+    padding: 30px;
     display: flex;
     align-items: center;
     justify-content: start;
@@ -12,13 +13,14 @@
     justify-items: center;
   }
 }
+
 @media screen and (max-width: 580px) {
   .profile {
     padding-top: 30px;
     padding-bottom: calc(36px + (51 - 36) * (100vw - 320px) / (1280 - 320));
     padding-left: 19px;
     padding-right: 19px;
-    gap:0;
+    gap: 0;
   }
 }
 

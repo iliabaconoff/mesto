@@ -4,8 +4,15 @@
   padding-bottom: 60px;
 }
 
+@media screen and (max-width: 880px) {
+  .footer {
+    padding-left: 50px;
+  }
+}
+
 @media screen and (max-width: 320px) {
   .footer {
     padding-top: 50px;
+    padding-left: 0;
   }
 }

@@ -13,3 +13,12 @@
     gap: 0;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .profile__info {
+    max-width: calc(100% - 20px);
+    margin: 0;
+    justify-items: center;
+    align-items: center;
+  }
+}

@@ -7,6 +7,8 @@
   grid-column: 2/3;
   grid-row: 2;
   padding-left: 10px;
+  white-space: wrap;
+  word-wrap: break-word;
 }
 
 @media screen and (max-width: 670px) {
@@ -16,8 +18,8 @@
 }
 @media screen and (max-width: 320px) {
   .profile__bio{
-    padding-left: 0;
-    padding-top: 10px;
+    max-width: 280px;
+    padding: 10px 19px 0;
     font-size: calc(14px + (18 - 14) * (100vw - 320px) / (1280 - 320));
   }
 }
