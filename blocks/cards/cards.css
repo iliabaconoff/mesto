@@ -11,9 +11,3 @@
     margin: auto;
   }
 }
-
-@media screen and (max-width:670px) {
-  .cards{
-    margin-top: 0;
-  }
-}

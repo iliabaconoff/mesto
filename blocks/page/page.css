@@ -4,7 +4,7 @@
   margin: auto;
   background-color: black;
   max-width: 880px;
-  height: 100vh;
+  min-height: 100vh;
   color: #fff;
   font-family: 'Inter', arial, sans-serif;
   padding-top: 45px;
