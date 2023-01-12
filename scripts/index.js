@@ -87,7 +87,7 @@ function addCard(name, link) {
   cardTitle.textContent = name;
   cardImage.alt = name;
 
-  cardLike.addEventListener('click', (evt) => { evt.target.classList.toggle('.card__like_pressed');});
+  cardLike.addEventListener('click', (evt) => { evt.target.classList.toggle('card__like_pressed');});
   cardDelete.addEventListener('click', () => { newCard.remove()});
   cardImage.addEventListener('click', () => { 
     const popImageForm = document.querySelector('.popup__image');
