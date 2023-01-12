@@ -26,9 +26,9 @@ const initialCards = [
 ];
 
 // Edit Profile Popup
-const popup = document.querySelectorAll('.popup')
+const popups = document.querySelectorAll('.popup')
 const openEditPop = document.querySelector(".profile__button-edit");
-const closePop = document.querySelectorAll(".popup__close");
+const closePops = document.querySelectorAll(".popup__close");
 const editPopUp = document.querySelector(".popup__edit");
 const submitPop = document.querySelector(".popup__save");
 const popEditForm = document.querySelector(".popup__form-edit");
@@ -45,6 +45,16 @@ function openClose (popEl) {
   popEl.classList.toggle('popup_opened')
 }
 
+//opening Add Cards popup
+openAddPop.addEventListener("click",() => {
+  openClose(addPopUp);
+})
+
+//closing all popups
+closePops.forEach(cp => cp.addEventListener("click", () => {
+  popups.forEach(popEl => popEl.classList.contains('popup_opened') && openClose(popEl))
+}));
+
 //editing name and bio in profile
 function editFormSubmitHandler(evt) {
   evt.preventDefault();
@@ -53,35 +63,12 @@ function editFormSubmitHandler(evt) {
   openClose(editPopUp);
 }
 
-// Get title and link for new cards
-function addFormSubmitHandler (evt) {
-  evt.preventDefault();
-  const titleInput = popAddForm.querySelector(".popup__input_type_title");
-  const linkInput = popAddForm.querySelector(".popup__input_type_link");
-  cardsRoot.prepend(addCard(titleInput.value, linkInput.value));
-  openClose(addPopUp);
-  evt.target.reset()
-}
-
 //opening Edit Profile popup
 openEditPop.addEventListener("click", () => {
   openClose(editPopUp);
   nameInput.value = profileName.textContent
   jobInput.value = profileBio.textContent
 });
-
-//opening Add Cards popup
-openAddPop.addEventListener("click",() => {
-  openClose(addPopUp);
-})
-
-//closing all popups
-closePop.forEach(cp => cp.addEventListener("click", () => {
-  popup.forEach(popEl => popEl.classList.contains('popup_opened') && openClose(popEl))
-}));
-
-popEditForm.addEventListener("submit", editFormSubmitHandler);
-popAddForm.addEventListener("submit", addFormSubmitHandler);
 
 //finding parental object
 const cardsRoot = document.querySelector('.cards');
@@ -116,10 +103,23 @@ function addCard(name, link) {
   return newCard;
 }
 
+// Get title and link for new cards
+function addFormSubmitHandler (evt) {
+  evt.preventDefault();
+  const titleInput = popAddForm.querySelector(".popup__input_type_title");
+  const linkInput = popAddForm.querySelector(".popup__input_type_link");
+  cardsRoot.prepend(addCard(titleInput.value, linkInput.value));
+  openClose(addPopUp);
+  evt.target.reset()
+}
+
 //insert cards array into parental object
 function renderCards() {
   const baseArray = initialCards.map(card => addCard(card.name, card.link));
   cardsRoot.prepend(...baseArray);
 }
 
+
+popEditForm.addEventListener("submit", editFormSubmitHandler);
+popAddForm.addEventListener("submit", addFormSubmitHandler);
 renderCards()
