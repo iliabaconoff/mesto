@@ -1,30 +1,3 @@
-// const initialCards = [
-//   {
-//     name: 'Архыз',
-//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-//   },
-//   {
-//     name: 'Челябинская область',
-//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-//   },
-//   {
-//     name: 'Иваново',
-//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-//   },
-//   {
-//     name: 'Камчатка',
-//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-//   },
-//   {
-//     name: 'Холмогорский район',
-//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-//   },
-//   {
-//     name: 'Байкал',
-//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-//   }
-// ];
-
 // Edit Profile Popup
 const popups = document.querySelectorAll('.popup')
 const openEditPop = document.querySelector(".profile__button-edit");
@@ -42,6 +15,13 @@ const openAddPop = document.querySelector('.profile__button-add');
 const addPopUp = document.querySelector(".popup_add");
 const popAddForm = document.querySelector(".popup__form-add");
 
+const cardTemplate = document.querySelector('#card__template').content; 
+const popImageForm = document.querySelector('.popup_image');
+const imageFullsize = popImageForm.querySelector('.popup__image-fullsize');
+const titleFullsize = popImageForm.querySelector('.popup__image-title');
+const titleInput = popAddForm.querySelector(".popup__input_type_title");
+const linkInput = popAddForm.querySelector(".popup__input_type_link");
+
 //openClose popup function
 function openClose (popEl) {
   popEl.classList.toggle('popup_opened')
@@ -53,10 +33,7 @@ openAddPop.addEventListener("click",() => {
 })
 
 // closing all popups
-closeButtons.forEach((button) => {
-  const targetPopup = button.closest('.popup')
-  button.addEventListener('click', () => openClose(targetPopup));
-})
+closeButtons.forEach((button) => button.addEventListener('click', () => openClose(button.closest('.popup'))))
 
 //editing name and bio in profile
 function editFormSubmitHandler(evt) {
@@ -79,7 +56,6 @@ const cardsRoot = document.querySelector('.cards');
 //card template
 // https://loremflickr.com/1024/720
 function addCard(name, link) {
-  const cardTemplate = document.querySelector('#card__template').content; 
   const newCard = cardTemplate.querySelector('.card').cloneNode(true);
   const cardTitle = newCard.querySelector('.card__title');
   const cardImage = newCard.querySelector('.card__image');
@@ -93,11 +69,8 @@ function addCard(name, link) {
   cardLike.addEventListener('click', (evt) => { evt.target.classList.toggle('card__like_pressed');});
   cardDelete.addEventListener('click', () => { newCard.remove()});
   cardImage.addEventListener('click', () => { 
-    const popImageForm = document.querySelector('.popup_image');
     openClose(popImageForm);
 
-    const imageFullsize = popImageForm.querySelector('.popup__image-fullsize');
-    const titleFullsize = popImageForm.querySelector('.popup__image-title');
     imageFullsize.src = link; 
     titleFullsize.textContent = name;
     imageFullsize.alt = name;
@@ -109,8 +82,6 @@ function addCard(name, link) {
 // Get title and link for new cards
 function addFormSubmitHandler (evt) {
   evt.preventDefault();
-  const titleInput = popAddForm.querySelector(".popup__input_type_title");
-  const linkInput = popAddForm.querySelector(".popup__input_type_link");
   cardsRoot.prepend(addCard(titleInput.value, linkInput.value));
   openClose(addPopUp);
   evt.target.reset()
