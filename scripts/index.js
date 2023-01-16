@@ -1,34 +1,34 @@
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
+// const initialCards = [
+//   {
+//     name: 'Архыз',
+//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+//   },
+//   {
+//     name: 'Челябинская область',
+//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+//   },
+//   {
+//     name: 'Иваново',
+//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+//   },
+//   {
+//     name: 'Камчатка',
+//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+//   },
+//   {
+//     name: 'Холмогорский район',
+//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+//   },
+//   {
+//     name: 'Байкал',
+//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+//   }
+// ];
 
 // Edit Profile Popup
 const popups = document.querySelectorAll('.popup')
 const openEditPop = document.querySelector(".profile__button-edit");
-const closePops = document.querySelectorAll(".popup__close");
+const closeButtons = document.querySelectorAll(".popup__close");
 const editPopUp = document.querySelector(".popup__edit");
 const submitPop = document.querySelector(".popup__save");
 const popEditForm = document.querySelector(".popup__form-edit");
@@ -36,10 +36,12 @@ const nameInput = popEditForm.querySelector(".popup__input_type_name");
 const jobInput = popEditForm.querySelector(".popup__input_type_bio");
 const profileName = document.querySelector(".profile__name");
 const profileBio = document.querySelector(".profile__bio");
+
 // Add Cards Popup
 const openAddPop = document.querySelector('.profile__button-add');
 const addPopUp = document.querySelector(".popup__add");
 const popAddForm = document.querySelector(".popup__form-add");
+
 //openClose popup function
 function openClose (popEl) {
   popEl.classList.toggle('popup_opened')
@@ -50,10 +52,11 @@ openAddPop.addEventListener("click",() => {
   openClose(addPopUp);
 })
 
-//closing all popups
-closePops.forEach(cp => cp.addEventListener("click", () => {
-  popups.forEach(popEl => popEl.classList.contains('popup_opened') && openClose(popEl))
-}));
+// closing all popups
+closeButtons.forEach((button) => {
+  const targetPopup = button.closest('.popup')
+  button.addEventListener('click', () => openClose(targetPopup));
+})
 
 //editing name and bio in profile
 function editFormSubmitHandler(evt) {
