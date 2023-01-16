@@ -29,7 +29,7 @@
 const popups = document.querySelectorAll('.popup')
 const openEditPop = document.querySelector(".profile__button-edit");
 const closeButtons = document.querySelectorAll(".popup__close");
-const editPopUp = document.querySelector(".popup__edit");
+const editPopUp = document.querySelector(".popup_edit");
 const submitPop = document.querySelector(".popup__save");
 const popEditForm = document.querySelector(".popup__form-edit");
 const nameInput = popEditForm.querySelector(".popup__input_type_name");
@@ -39,7 +39,7 @@ const profileBio = document.querySelector(".profile__bio");
 
 // Add Cards Popup
 const openAddPop = document.querySelector('.profile__button-add');
-const addPopUp = document.querySelector(".popup__add");
+const addPopUp = document.querySelector(".popup_add");
 const popAddForm = document.querySelector(".popup__form-add");
 
 //openClose popup function
@@ -93,7 +93,7 @@ function addCard(name, link) {
   cardLike.addEventListener('click', (evt) => { evt.target.classList.toggle('card__like_pressed');});
   cardDelete.addEventListener('click', () => { newCard.remove()});
   cardImage.addEventListener('click', () => { 
-    const popImageForm = document.querySelector('.popup__image');
+    const popImageForm = document.querySelector('.popup_image');
     openClose(popImageForm);
 
     const imageFullsize = popImageForm.querySelector('.popup__image-fullsize');
