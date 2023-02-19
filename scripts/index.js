@@ -61,14 +61,14 @@ function submitEditProfileForm(evt) {
 //opening Edit Profile popup
 buttonOpenEditProfileForm.addEventListener("click", () => {
   openPopup(popupEditProfile);
+  resetValidation(formEditProfile, formValidationConfig);
   nameInput.value = profileName.textContent;
   jobInput.value = profileBio.textContent;
-  resetValidation(formEditProfile, formValidationConfig);
-
 });
 
 //finding parental object
 const cardsRoot = document.querySelector(".cards");
+
 //card template
 // https://loremflickr.com/1024/720
 function addCard(name, link) {
