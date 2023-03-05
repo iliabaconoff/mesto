@@ -2,29 +2,28 @@ import { initialCards, formValidationConfig } from "./config.js";
 import FormValidator from "./FormValidator.js";
 import Card from "./Card.js";
 
-// #Constants
 // Popups
 const popupEdit = document.querySelector('.popup_edit');
 const popupAdd = document.querySelector('.popup_add');
-const popupPreview = document.querySelector('.popup_preview');
+const popupPreview = document.querySelector('.popup_image');
 // Edit form for user profile (username & userjob)
-const formEditProfile = document.querySelector('.popup__form_type_profile-edit');
-// Consts for profile edit
-const nameInput = document.querySelector('.popup__input_field_name');
-const jobInput = document.querySelector('.popup__input_field_job');
-const userNameText = document.querySelector('.head-profile__username');
-const userJobText = document.querySelector('.head-profile__job');
-// Consts for adding and creating card
-const formAddCard = document.querySelector('.popup__form_type_card-add');
-const cardsContainer = document.querySelector('.photo-feed');
-const popupPreviewImage = popupPreview.querySelector('.popup__image-preview');
-const popupPreviewTitle = popupPreview.querySelector('.popup__title-preview');
-const cardTitleInput = document.querySelector('.popup__input_field_placename');
-const cardImageInput = document.querySelector('.popup__input_field_placeurl');
+const formEditProfile = document.querySelector('.popup__form-edit');
+// Edit profile constants
+const nameInput = document.querySelector('.popup__input_type_name');
+const jobInput = document.querySelector('.popup__input_type_bio');
+const userNameText = document.querySelector('.profile__name');
+const userJobText = document.querySelector('.profile__bio');
+// Add card constants
+const formAddCard = document.querySelector('.popup__form-add');
+const cardsContainer = document.querySelector('.cards');
+const popupPreviewImage = popupPreview.querySelector('.popup__image-fullsize');
+const popupPreviewTitle = popupPreview.querySelector('.popup__image-title');
+const cardTitleInput = document.querySelector('.popup__input_type_title');
+const cardImageInput = document.querySelector('.popup__input_type_link');
 // Buttons
-const buttonOpenEditForm = document.querySelector('.head-profile__edit-button');
-const buttonAdd = document.querySelector('.head-profile__add-button');
-const closeButtons = document.querySelectorAll('.popup__close-button');
+const buttonOpenEditForm = document.querySelector('.profile__button-edit');
+const buttonAdd = document.querySelector('.profile__button-add');
+const closeButtons = document.querySelectorAll('.popup__close');
 
 // #Functions
 // This function will open the popups by add popup_opened class
@@ -61,7 +60,7 @@ const closeByEscBtn = (evt) => {
 };
 
 function createCard(item) {
-  const card = new Card(item.name, item.link, '#card-template', openPopupPreview);
+  const card = new Card(item.name, item.link, '#card__template', openPopupPreview);
   const cardElement = card.createCard();
   return cardElement;
 }
