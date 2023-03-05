@@ -1,3 +1,8 @@
+import { initialCards, formValidationConfig } from "./config.js";
+import FormValidator from "./FormValidator.js";
+import Card from "./Card.js";
+
+
 // Edit Profile Popup
 const popups = document.querySelectorAll(".popup");
 const buttonOpenEditProfileForm = document.querySelector(
