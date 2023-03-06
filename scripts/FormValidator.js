@@ -12,7 +12,7 @@ class FormValidator {
   }
 // errors
   _getErrorElement(inputElement) {
-    return this._formElement.querySelector(`.${inputElement.name}-error`)
+    return this._formElement.querySelector(`.${inputElement.id}-error`)
   }
 
   _showInputError(inputElement) {
