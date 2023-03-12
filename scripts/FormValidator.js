@@ -10,6 +10,7 @@ class FormValidator {
     this._buttonElement = formElement.querySelector(this._submitButtonSelector);
     this._formElement = formElement;
   }
+  
 // errors
   _getErrorElement(inputElement) {
     return this._formElement.querySelector(`.${inputElement.id}-error`)

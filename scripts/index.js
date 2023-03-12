@@ -65,14 +65,14 @@ function createCard(item) {
   return cardElement;
 }
 
-function formEditProfileSubmitHandler(evt) {
+function handleEditProfileFormSubmit(evt) {
   evt.preventDefault();
   userNameText.textContent = nameInput.value;
   userJobText.textContent = jobInput.value;
   closePopup(popupEdit);
 };
 
-function formAddCardHandler(evt) {
+function handleAddCardForm(evt) {
   evt.preventDefault();
   cardsContainer.prepend(createCard({ name: cardTitleInput.value, link: cardImageInput.value }));
   closePopup(popupAdd);
@@ -84,24 +84,24 @@ buttonOpenEditForm.addEventListener('click', () => {
   openPopup(popupEdit);
   nameInput.value = userNameText.textContent;
   jobInput.value = userJobText.textContent;
-  formEditValidation.resetValidation(formEditProfile, formValidationConfig); // сброс валидации при сабмите или переоткрытии
+  formEditValidation.resetValidation(); // сброс валидации при сабмите или переоткрытии
 });
 
 // Add button listener
 buttonAdd.addEventListener('click', () => {
   formAddCard.reset();
-  formAddCardValidation.resetValidation(formAddCard, formValidationConfig); // сброс валидации при сабмите или переоткрытии
+  formAddCardValidation.resetValidation(); // сброс валидации при сабмите или переоткрытии
   openPopup(popupAdd);
 });
 
 // form events listeners
-formEditProfile.addEventListener('submit', formEditProfileSubmitHandler);
-formAddCard.addEventListener('submit', formAddCardHandler);
+formEditProfile.addEventListener('submit', handleEditProfileFormSubmit);
+formAddCard.addEventListener('submit', handleAddCardForm);
 
 // Close buttons listeners
 closeButtons.forEach((button) => {
   button.addEventListener('click', () => {
-    const activePopup = document.querySelector('.popup_opened')
+    const activePopup = button.closest('.popup_opened')
     closePopup(activePopup);
   });
 });
