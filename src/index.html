@@ -9,13 +9,13 @@
   </head>
   <body class="page">
     <header class="header">
-      <img src="./images/logo.svg" alt="лого" class="header__logo" />
+      <img src="<%=require('./images/logo.svg')%>" alt="лого" class="header__logo" />
     </header>
 
     <main class="main">
       <section class="profile">
         <div class="profile__info">
-          <img src="./images/image-2.png" alt="аватар" class="profile__image" />
+          <img src="<%=require('./images/image-2.png')%>" alt="аватар" class="profile__image" />
           <div class="profile__column">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
             <button class="profile__button-edit" type="button"></button>
@@ -39,7 +39,7 @@
           >
             <input
               type="text"
-              name="name"
+              name="username"
               value=""
               class="popup__input popup__input_type_name"
               placeholder="Введите имя"
@@ -51,7 +51,7 @@
             <span class="popup__input-error username-error"></span>
             <input
               type="text"
-              name="job"
+              name="userjob"
               value=""
               class="popup__input popup__input_type_bio"
               placeholder="Место работы"
