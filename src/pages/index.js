@@ -46,23 +46,23 @@ const popupWithAddForm = new PopupWithForm('.popup_add', {
   }
 });
 
-const editFormValidation = new FormValidator(formValidationConfig, '.popup__form-edit');
-const addCardFormValidation = new FormValidator(formValidationConfig, '.popup__form-add');
+const formEditValidation = new FormValidator(formValidationConfig, '.popup__form-edit');
+const formAddCardValidation = new FormValidator(formValidationConfig, '.popup__form-add');
 
 // enable validation
-editFormValidation.enableValidation();
-addCardFormValidation.enableValidation();
+formEditValidation.enableValidation();
+formAddCardValidation.enableValidation();
 
 // Listeners
 buttonOpenEditForm.addEventListener('click', () => {
   console.log('gasdfasdas')
   popupWithEditForm.open()
   popupWithEditForm.setInputValues(userProfile.getUserInfo());
-  editFormValidation.resetValidation();
+  formEditValidation.resetValidation();
 });
 
 buttonOpenAddForm.addEventListener('click', () => {
-  addCardFormValidation.resetValidation(); // validation reset
+  formAddCardValidation.resetValidation(); // validation reset
   popupWithAddForm.open();
 });
 
