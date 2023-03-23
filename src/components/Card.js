@@ -9,13 +9,11 @@ class Card {
   _setEventListeners() {
     this.cardLikeButton.addEventListener("click", () => this._setLikeButtonState());
     this.deleteCardButton.addEventListener("click", () => this._deleteCard());
-    this._cardImage.addEventListener("click", () => {
-      this._handlePopupPreview();
-    });
+    this._cardImage.addEventListener("click", () => this._handlePopupPreview());
   }
 
   _setLikeButtonState() {
-    if (this.cardLikeButton.contains("card__like_pressed")) {
+    if (this.cardLikeButton.classList.contains("card__like_pressed")) {
       this.cardLikeButton.classList.remove('card__like_pressed');
      } else {
       this.cardLikeButton.classList.add("card__like_pressed");
