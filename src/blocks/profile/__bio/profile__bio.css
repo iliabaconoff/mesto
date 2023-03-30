@@ -16,12 +16,14 @@
 @media screen and (max-width: 670px) {
   .profile__bio{
     align-self: center;
+    /* max-width: 80%; */
+    font-size: calc(14px + (18 - 14) * (100vw - 320px) / (1280 - 320));
   }
 }
 @media screen and (max-width: 320px) {
   .profile__bio{
     max-width: 280px;
     padding: 10px 19px 0;
-    font-size: calc(14px + (18 - 14) * (100vw - 320px) / (1280 - 320));
+    /* font-size: calc(14px + (18 - 14) * (100vw - 320px) / (1280 - 320)); */
   }
 }
