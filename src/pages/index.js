@@ -1,67 +1,84 @@
 import { initialCards, formValidationConfig } from "../utils/config.js";
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
-import './index.css'
+import "./index.css";
 import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
-import { buttonOpenEditForm, buttonOpenAddForm } from '../utils/constants.js'
+import { buttonOpenEditForm, buttonOpenAddForm } from "../utils/constants.js";
 
-function handleCardClick(name, link) { // fullsize card opener
+const imageFullsize = new PopupWithImage(".popup_image");
+
+// fullsize card opener
+function handleCardClick(name, link) {
   imageFullsize.open(name, link);
-};
+}
 
-function createCard(item) {  //create new card func
-  const card = new Card(item.name, item.link, '#card__template', handleCardClick);
+//create new card func
+function createCard(item) {
+  const card = new Card(
+    item.name,
+    item.link,
+    "#card__template",
+    handleCardClick
+  );
   return card.createCard();
-};
+}
 
 // Render created cards with Section class
-const cardSection = new Section({
-  renderer: (item) => {
-    cardSection.addItem(createCard({ name: item.name, link: item.link }));
-  }
-}, '.cards');
+const cardSection = new Section(
+  {
+    renderer: (item) => {
+      cardSection.addItem(createCard({ name: item.name, link: item.link }));
+    },
+  },
+  ".cards"
+);
 cardSection.renderItems(initialCards);
 
 const userProfile = new UserInfo({
-  username: '.profile__name',
-  userjob: '.profile__bio'
+  username: ".profile__name",
+  userjob: ".profile__bio",
 });
 
-const imageFullsize = new PopupWithImage('.popup_image');
-
-const popupWithEditForm = new PopupWithForm('.popup_edit', {
+const popupWithEditForm = new PopupWithForm(".popup_edit", {
   submitForm: (values) => {
     userProfile.setUserInfo(values);
     popupWithEditForm.close();
-  }
+  },
 });
 
-const popupWithAddForm = new PopupWithForm('.popup_add', {
+const popupWithAddForm = new PopupWithForm(".popup_add", {
   submitForm: (values) => {
-    cardSection.addItem(createCard({ name: values.carname, link: values.cardurl }));
+    cardSection.addItem(
+      createCard({ name: values.carname, link: values.cardurl })
+    );
     popupWithAddForm.close();
-  }
+  },
 });
 
-const formEditValidation = new FormValidator(formValidationConfig, '.popup__form-edit');
-const formAddCardValidation = new FormValidator(formValidationConfig, '.popup__form-add');
+const formEditValidation = new FormValidator(
+  formValidationConfig,
+  ".popup__form-edit"
+);
+const formAddCardValidation = new FormValidator(
+  formValidationConfig,
+  ".popup__form-add"
+);
 
 // enable validation
 formEditValidation.enableValidation();
 formAddCardValidation.enableValidation();
 
 // Listeners
-buttonOpenEditForm.addEventListener('click', () => {
-  console.log('gasdfasdas')
-  popupWithEditForm.open()
+buttonOpenEditForm.addEventListener("click", () => {
+  popupWithEditForm.open();
   popupWithEditForm.setInputValues(userProfile.getUserInfo());
   formEditValidation.resetValidation();
 });
 
-buttonOpenAddForm.addEventListener('click', () => {
+buttonOpenAddForm.addEventListener("click", () => {
   formAddCardValidation.resetValidation(); // validation reset
   popupWithAddForm.open();
 });
