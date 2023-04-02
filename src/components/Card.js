@@ -13,11 +13,7 @@ class Card {
   }
 
   _setLikeButtonState() {
-    if (this.cardLikeButton.classList.contains("card__like_pressed")) {
-      this.cardLikeButton.classList.remove('card__like_pressed');
-     } else {
-      this.cardLikeButton.classList.add("card__like_pressed");
-    };
+    this.cardLikeButton.classList.toggle('card__like_pressed'); 
   }
 
   _deleteCard() {

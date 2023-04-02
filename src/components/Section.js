@@ -9,7 +9,6 @@ class Section {
   }
 
   renderItems(items) {
-    this._container.innerHTML = '';
     items.forEach(item => this._renderer(item));
   }
 }

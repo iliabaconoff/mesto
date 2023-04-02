@@ -6,7 +6,7 @@ import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
-import { buttonOpenEditForm, buttonOpenAddForm } from "../utils/constants.js";
+import { buttonOpenAddForm, buttonOpenEditForm, formEdit, formAdd } from "../utils/constants.js";
 
 const imageFullsize = new PopupWithImage(".popup_image");
 
@@ -52,20 +52,15 @@ const popupWithEditForm = new PopupWithForm(".popup_edit", {
 const popupWithAddForm = new PopupWithForm(".popup_add", {
   submitForm: (values) => {
     cardSection.addItem(
-      createCard({ name: values.carname, link: values.cardurl })
+      createCard({ name: values.cardname, link: values.cardurl })
     );
     popupWithAddForm.close();
   },
 });
 
-const formEditValidation = new FormValidator(
-  formValidationConfig,
-  ".popup__form-edit"
-);
-const formAddCardValidation = new FormValidator(
-  formValidationConfig,
-  ".popup__form-add"
-);
+const formEditValidation = new FormValidator(formValidationConfig, formEdit);
+
+const formAddCardValidation = new FormValidator(formValidationConfig, formAdd);
 
 // enable validation
 formEditValidation.enableValidation();
