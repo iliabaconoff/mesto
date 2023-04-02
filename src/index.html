@@ -26,6 +26,8 @@
 
       <section class="cards"></section>
 
+      <!--Hidden blocks-->
+      <!--Edit user profile popup-->
       <div class="popup popup_edit">
         <div class="popup__container">
           <button class="popup__close" type="button"></button>
@@ -65,6 +67,7 @@
         </div>
       </div>
 
+      <!--Add card popup-->
       <div class="popup popup_add">
         <div class="popup__container">
           <button class="popup__close" type="button"></button>
@@ -102,7 +105,8 @@
           </form>
         </div>
       </div>
-
+      
+      <!--Fullsize image popup-->
       <div class="popup popup_image">
         <div class="popup__image-container">
           <button class="popup__close" type="button"></button>
@@ -110,6 +114,42 @@
           <h2 class="popup__image-title"></h2>
         </div>
       </div>
+
+      <!--Deleting card acception-->
+      <div class="popup popup_delete">
+        <div class="popup__container">
+          <button class="popup__close" type="button"></button>
+          <h2 class="popup__form-title">Вы уверены?</h2>
+          <button type="submit" class="popup__save">Сохранить</button>
+        </div>
+      </div>
+
+      <div class="popup popup_add">
+        <div class="popup__container">
+          <button class="popup__close" type="button"></button>
+          <h2 class="popup__form-title">Обновить аватар</h2>
+          <form
+            novalidate
+            action="submit"
+            class="popup__form popup__form-add"
+            name="popup__form popup__form-add"
+          >
+            <input
+              type="url"
+              name="avatar_url"
+              value=""
+              class="popup__input popup__input_type_link"
+              placeholder="Введите ссылку на изображение"
+              id="avatarurl"
+              required
+            />
+            <span class="popup__input-error cardurl-error"></span>
+
+            <button type="submit" class="popup__save">Сохранить</button>
+          </form>
+        </div>
+      </div>
+
     </main>
 
     <footer class="footer">
