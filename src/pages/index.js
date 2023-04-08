@@ -72,7 +72,7 @@ const popupWithConfirmation = new PopupWithConfirmation('.popup_delete', {
     popupWithConfirmation.proccessActionButtonText('Удаляем...');
     api.deleteCard(cardId)
       .then (() => {
-        cardElement._deleteCard();
+        cardElement.deleteCard();
         popupWithConfirmation.close();
       })
       .catch(err => console.log('Ошибонька при удалении: ', err))
