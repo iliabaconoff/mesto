@@ -14,12 +14,21 @@
     <main class="main">
       <section class="profile">
         <div class="profile__info">
-          <img src="<%=require('./images/image-2.png')%>" alt="аватар" class="profile__image" />
-          <div class="profile__column">
-            <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <button class="profile__button-edit" type="button"></button>
+          <div class="profile__avatar-group">
+            <img src="<%=require('./images/image-2.png')%>" alt="аватар" class="profile__image" />
+            <button
+            class="profile__edit-avatar"
+            type="button"
+            aria-label="Редактировать аватар"
+            ></button>
           </div>
-          <p class="profile__bio">Исследователь океана</p>
+          <div class="profile__column">
+            <div class="profile__name-button">
+              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <button class="profile__button-edit" type="button"></button>
+            </div>
+            <p class="profile__bio">Исследователь океана</p>
+          </div>
         </div>
         <button class="profile__button-add" type="button"></button>
       </section>
@@ -27,6 +36,34 @@
       <section class="cards"></section>
 
       <!--Hidden blocks-->
+
+      <!--Edit User Avatar popup-->
+      <div class="popup popup_avatar">
+        <div class="popup__container">
+          <button class="popup__close" type="button"></button>
+          <h2 class="popup__form-title">Обновить аватар</h2>
+          <form
+            novalidate
+            action="submit"
+            class="popup__form popup__form-avatar"
+            name="edit_avatar"
+          >
+          <input
+              type="url"
+              name="avatarurl"
+              value=""
+              class="popup__input popup__input_type_link"
+              placeholder="Введите ссылку на изображение"
+              id="avatarurl"
+              required
+            />
+            <span class="popup__input-error avatarurl-error"></span>
+
+            <button type="submit" class="popup__save" name="avatarSubmit" id="avatarSubmit">Сохранить</button>
+          </form>
+        </div>
+      </div>
+
       <!--Edit user profile popup-->
       <div class="popup popup_edit">
         <div class="popup__container">
@@ -120,33 +157,7 @@
         <div class="popup__container">
           <button class="popup__close" type="button"></button>
           <h2 class="popup__form-title">Вы уверены?</h2>
-          <button type="submit" class="popup__save">Сохранить</button>
-        </div>
-      </div>
-
-      <div class="popup popup_add">
-        <div class="popup__container">
-          <button class="popup__close" type="button"></button>
-          <h2 class="popup__form-title">Обновить аватар</h2>
-          <form
-            novalidate
-            action="submit"
-            class="popup__form popup__form-add"
-            name="popup__form popup__form-add"
-          >
-            <input
-              type="url"
-              name="avatar_url"
-              value=""
-              class="popup__input popup__input_type_link"
-              placeholder="Введите ссылку на изображение"
-              id="avatarurl"
-              required
-            />
-            <span class="popup__input-error cardurl-error"></span>
-
-            <button type="submit" class="popup__save">Сохранить</button>
-          </form>
+          <button type="submit" class="popup__save" name="deleteCardSubmit" id="deleteCardSubmit">Да</button>
         </div>
       </div>
 
@@ -168,13 +179,16 @@
         ></button>
         <div class="card__description">
           <h2 class="card__title"></h2>
-          <button
+          <div class="card__like-column">
+            <button
             class="card__like"
             type="button"
             arial-label="Нравится"
             namde="card__like"
             id="card__like"
-          ></button>
+            ></button>
+            <p class="card__like-counter">100</p>
+          </div>
         </div>
       </div>
     </template>

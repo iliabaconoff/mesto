@@ -1,26 +1,19 @@
 .profile__name {
   margin: 0;
+  padding: 0;
   font-weight: 500;
   font-size: 42px;
   line-height: 48px;
-  padding-top: 10px;
-  padding-left: 3px;
-  grid-column: 2/3;
-  max-width: 100%;
-  grid-row: 1/2;
+  text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
-}
-@media screen and (max-width: 370px) {
-  .profile__name {
-    font-size: 27px;
-  }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 917px) {
   .profile__name {
-    line-height: 1.2;
-    padding-left: 22px;
+    text-align: center;
+    font-size: 26px;
+    line-height: 32px;
+    padding-left: 28px;
   }
 }
