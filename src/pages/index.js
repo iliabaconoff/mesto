@@ -88,11 +88,14 @@ const userProfile = new UserInfo({
 
 const popupWithEditForm = new PopupWithForm('.popup_edit', {
   submitForm: (values) => {
-    userProfile.setUserInfo(values)
     popupWithEditForm.proccessActionButtonText('Сохранение')
     api.setUserInfo({
       name: values.username,
       about: values.userjob
+    })
+    .then(() => {
+      userProfile.setUserInfo(values);
+      popupWithEditForm.close();
     })
     .catch(err => console.log('Ошибонька с редактированием профиля: ', err))
     .finally(() => popupWithEditForm.finalActionButtonText('Сохранить'))
@@ -106,6 +109,7 @@ const popupWithAddForm = new PopupWithForm('.popup_add', {
       .then((cardData) => {
         cardSection.addItem(createCard(cardData));
         popupWithAddForm.close();
+
       })
       .catch(err => console.log('Ошибонька при добавлении места: ', err))
       .finally(() => popupWithAddForm.finalActionButtonText('Создать'))
