@@ -1,0 +1,7 @@
+.profile__avatar-group {
+    display: flex;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: relative;
+}
